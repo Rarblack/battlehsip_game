@@ -15,7 +15,7 @@ class Board:
         self.__matrix = None
 
         self.__battleships = None
-        self.__health = 1
+        self.__health = 17
         self.__attempts = 0
         self.__hits = 0
         self.__misses = 0
@@ -56,7 +56,6 @@ class Board:
     @attempts.setter
     def attempts(self, value):
         self.__attempts = value
-        print("")
 
     @property
     def hits(self):
@@ -172,14 +171,15 @@ class Board:
                         raise NotEmptyError
                     location_points.append(choosen_point)
 
-                    for i in location_points:
-                        i.id = battleship.id
-                        i.sign = 1
+                for i in location_points:
+                    i.id = battleship.id
+                    i.sign = 1
 
                 battleship.points = location_points
                 return True
             except NotEmptyError:
                 print(f"POINT [{row}, {column}] ALREADY EXIST \n")
+                return False
             except IndexError:
                 print(f"[{row}, {column}] IS OUT OF THE BOARD\n"
                       f"HINT: POINT MUST BE ON THE BOARD\n")
@@ -203,6 +203,7 @@ class Board:
                 return True
             except NotEmptyError:
                 print(f"POINT [{row}, {column}] ALREADY EXIST \n")
+                return False
             except IndexError:
                 print(f"[{row}, {column}] IS OUT OF THE BOARD\n"
                       f"HINT: POINT MUST BE ON THE BOARD\n")
@@ -234,16 +235,18 @@ class Board:
                         raise NotEmptyError
                     location_points.append(choosen_point)
 
-                    for i in location_points:
-                        i.id = battleship.id
-                        i.sign = 1
+                for i in location_points:
+                    i.id = battleship.id
+                    i.sign = 1
 
                 battleship.points = location_points
                 return True
             except NotEmptyError:
-                pass
+                print(f"POINT [{row}, {column}] ALREADY EXIST \n")
+                return False
             except IndexError:
-                pass
+                print(f"[{row}, {column}] IS OUT OF THE BOARD\n"
+                      f"HINT: POINT MUST BE ON THE BOARD\n")
 
         def vertical_locating(point):
             row = None
@@ -253,7 +256,7 @@ class Board:
                     choosen_point = self.matrix[row][column]
                     if choosen_point.sign == 1:
                         raise NotEmptyError
-                    location_points.append(self.matrix[row][column])
+                    location_points.append(choosen_point)
 
                 for i in location_points:
                     i.id = battleship.id
@@ -263,6 +266,7 @@ class Board:
                 return True
             except NotEmptyError:
                 print(f"POINT [{row}, {column}] ALREADY EXIST \n")
+                return False
             except IndexError:
                 print(f"[{row}, {column}] IS OUT OF THE BOARD\n"
                       f"HINT: POINT MUST BE ON THE BOARD\n")
