@@ -3,13 +3,13 @@ class NotEmptyError(Exception):
     pass
 
 
-class PointOutOfBoardError(Exception):
-    """Raised when point exits already on board"""
+class NotInRangeError(Exception):
+    """Raised when input is not within given range"""
     pass
 
 
-class NegativeNumberError(Exception):
-    """Raised when negative number is inputted"""
+class PointOutOfBoardError(Exception):
+    """Raised when point exits already on board"""
     pass
 
 
@@ -18,12 +18,7 @@ class NotInDictError(Exception):
     pass
 
 
-class LessThanTenError(Exception):
-    """Raised when input is less than 10"""
-    pass
-
-
-class MoreThanNinetyNineError(Exception):
-    """Raised when input is more than 99"""
+class NotAllowedNumberError(Exception):
+    """Raised when input is within [10-100) boundary"""
     pass
 

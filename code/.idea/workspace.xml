@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="83cfe9a8-20ba-4e26-8718-672d2a59f2b4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/Board.py" afterDir="false" />
-    </list>
+    <list default="true" id="83cfe9a8-20ba-4e26-8718-672d2a59f2b4" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,13 +11,13 @@
   <component name="FileEditorManager">
     <splitter split-orientation="horizontal" split-proportion="0.728022">
       <split-first>
-        <splitter split-orientation="horizontal" split-proportion="0.21019772">
+        <splitter split-orientation="horizontal" split-proportion="0.19078948">
           <split-first>
             <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/Game.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="279">
+                    <state relative-caret-position="306">
                       <caret line="94" selection-start-line="94" selection-end-line="94" />
                       <folding>
                         <element signature="e#0#25#0" expanded="true" />
@@ -61,8 +57,8 @@
               <file pinned="false" current-in-tab="true">
                 <entry file="file://$PROJECT_DIR$/Board.py">
                   <provider selected="true" editor-type-id="text-editor">
-                    <state relative-caret-position="278">
-                      <caret line="239" column="30" lean-forward="true" selection-start-line="239" selection-start-column="30" selection-end-line="239" selection-end-column="30" />
+                    <state relative-caret-position="-616">
+                      <caret line="161" selection-start-line="161" selection-end-line="161" />
                       <folding>
                         <element signature="e#0#23#0" expanded="true" />
                         <element signature="e#297#581#0" />
@@ -90,6 +86,8 @@
                         <element signature="e#2622#2699#0" />
                         <element signature="e#2738#3057#0" />
                         <element signature="e#3097#3794#0" />
+                        <element signature="e#6345#8832#0" />
+                        <element signature="e#8876#9159#0" />
                       </folding>
                     </state>
                   </provider>
@@ -104,7 +102,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Battleship.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="211">
+                <state relative-caret-position="424">
                   <caret line="68" selection-start-line="68" selection-end-line="68" />
                 </state>
               </provider>
@@ -187,6 +185,7 @@
         <option value="$PROJECT_DIR$/CustomErrors.py" />
         <option value="$PROJECT_DIR$/Game.py" />
         <option value="$PROJECT_DIR$/Board.py" />
+        <option value="$PROJECT_DIR$/../../CMS_DB_doc/CMS_DB_doc/CMS_DB.html" />
       </list>
     </option>
   </component>
@@ -218,7 +217,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CMS_DB_doc" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -331,12 +330,12 @@
       <workItem from="1576611691073" duration="37988000" />
       <workItem from="1578392035027" duration="5247000" />
       <workItem from="1578479317426" duration="236000" />
-      <workItem from="1578638461348" duration="786000" />
+      <workItem from="1578638461348" duration="1949000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="235060000" />
+    <option name="totallyTimeSpent" value="236223000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -350,12 +349,12 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.024128687" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15951742" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.301273" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.042432815" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.20509194" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -401,7 +400,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/code$Battleship.coverage" NAME="Battleship Coverage Results" MODIFIED="1576245592232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/code$Game.coverage" NAME="Game Coverage Results" MODIFIED="1578639126065" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/code$Game.coverage" NAME="Game Coverage Results" MODIFIED="1578639650194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_bundle/pydev_umd.py">
@@ -465,7 +464,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
+        <state relative-caret-position="306">
           <caret line="94" selection-start-line="94" selection-end-line="94" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
@@ -495,15 +494,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Battleship.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
+        <state relative-caret-position="424">
           <caret line="68" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../CMS_DB_doc/CMS_DB_doc/CMS_DB.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Board.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="239" column="30" lean-forward="true" selection-start-line="239" selection-start-column="30" selection-end-line="239" selection-end-column="30" />
+        <state relative-caret-position="-616">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#297#581#0" />
@@ -531,6 +537,8 @@
             <element signature="e#2622#2699#0" />
             <element signature="e#2738#3057#0" />
             <element signature="e#3097#3794#0" />
+            <element signature="e#6345#8832#0" />
+            <element signature="e#8876#9159#0" />
           </folding>
         </state>
       </provider>

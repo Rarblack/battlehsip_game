@@ -1,53 +1,44 @@
-from CustomErrors import NegativeNumberError, NotInDictError
+from CustomErrors import NotAllowedNumberError, NotInDictError, NotInRangeError
 
 
-def input_number(title):
+def input_number(prompt, _range=None):
     while True:
         try:
-            value = int(input(title))
-            if value < 0:
-                raise NegativeNumberError
+            value = int(input(prompt))
+            if _range:
+                if value not in _range:
+                    raise NotInRangeError
+                return value
+            # if value < 10 or value >= 100:
+            #     raise NotAllowedNumberError
             return value
-        except NegativeNumberError:
-            print("NEGATIVE NUMBER\n"
-                  "HINT: ENTERED NUMBER MUST BE POSITIVE")
+        except NotInRangeError:
+            print("NOT WITHIN THE RANGE\n"
+                  f"HINT: your input should be within {_range}")
         except ValueError:
-            print("WRONG INPUT!!!\n"
-                  "HINT: A NUMBER MUST BE ENTERED")
+            print("Wrong type\n"
+                  "HINT: An integer type of number must be entered")
+        except NotAllowedNumberError:
+            print("Input is not allowed \n"
+                  "HINT: Input value mus be within [10-100) boundary")
 
 
-def choose_value(dict, title):
+def display_options(_dict, question):
+    print(question)
+    for key, value in _dict.items():
+        print(f"{key}: {value}")
+
+
+def choose_value(_dict):
     while True:
         try:
-            value = input_number(title)
-            if value not in dict.keys():
+            value = int(input("-> "))
+            if value not in _dict.keys():
                 raise NotInDictError
             return value
         except NotInDictError:
-            print("CHOSEN VALUE IS NOT AVAILABLE \n"
-                  "HINT: CHOOSE FROM DISPLAYED OPTIONS\n")
-
-
-def select_point(board):
-    while True:
-        print("SELECTING POINT")
-        try:
-            column_index = input_number("ROW: ")
-            print("")
-            columns = board.matrix[column_index]
-
-            column_index = input_number("COLUMN: ")
-            print("")
-            point = columns[column_index]
-
-            return point
-        except IndexError:
-            print("NOT FOUND ERROR\n"
-                  "HINT: POINT MUST BE ON THE BOARD\n")
-            board.display_matrix()
-
-
-def display_options(dict):
-    for key, value in dict.items():
-        print(f"{key}: {value}")
-    print("")
+            print("Chosen value is not available \n"
+                  "HINT: Choose from the displayed options")
+        except ValueError:
+            print("Wrong type\n"
+                  "HINT: An integer type of number must be entered")

@@ -3,83 +3,81 @@ from Player import Player
 from dictionaries import MENU
 from shortcuts import input_number, display_options, choose_value
 
-from CustomErrors import MoreThanNinetyNineError, LessThanTenError
-
 
 class Game:
 
     def __init__(self):
-        self.__players = []
+        self.__players = None
+        self.__command = None
+        self.__winner = False
 
-    def set_up(self, number_of_players=2):
+    @property
+    def players(self):
+        return self.__players
 
-        def input_board_parameters():
-            print("SETTING BOARD LENGTH AND WIDTH FOR ALL PLAYERS")
-            while True:
-                try:
-                    length = input_number("BOARD LENGTH: ")
-                    if length < 10:
-                        raise LessThanTenError
-                    if length > 99:
-                        raise MoreThanNinetyNineError
+    @players.setter
+    def players(self, value):
+        self.__players = value
 
-                    width = input_number("BOARD WIDTH: ")
-                    if width < 10:
-                        raise LessThanTenError
-                    if width > 99:
-                        raise MoreThanNinetyNineError
-                    print("")
+    @property
+    def command(self):
+        return self.__command
 
-                    return length, width
-                except LessThanTenError:
-                    print("INPUT IS NOT ALLOWED \n"
-                          "HINT: INPUT VALUE MUST BE OVER OR EQUAL TO 10")
-                except MoreThanNinetyNineError:
-                    print("INPUT IS NOT ALLOWED \n"
-                          "HINT: INPUT VALUE MUST BE LESS OR EQUAL TO 99")
+    @command.setter
+    def command(self, value):
+        self.__command = value
 
-        def create_player(id, length, width):
+    @property
+    def winner(self):
+        return self.__winner
+
+    @winner.setter
+    def winner(self, value):
+        self.__winner = value
+
+    def set_players_up(self):
+        print("Length and width for both boards")
+        length = input_number("Length -> ")
+        width = input_number("Width -> ")
+        print("Setting players up")
+        players = []
+        for _id in range(2):
+            print(f"Setting player {_id} up")
             player = Player()
-            player.id = id
-            player.name = input("NAME: ")
+            player.id = _id
+            player.name = input(f"Name -> ")
             player.create_board(length, width)
-            self.__players.append(player)
-            print(f"PLAYER {id} IS ON GAME NOW \n"
-                  f"CREATION COMPLETED!\n")
-
-        length, width = input_board_parameters()
-        for id in range(1, number_of_players + 1):
-            create_player(id, width, length)
+            player.create_notebook()
+            print("Created a notebook")
+            players.append(player)
+        self.players = players
 
     def play(self):
-        print("GAME TIME \n")
-        winner = False
-        command = None
         player_number = 0
         opponent_number = 1
-        while not winner or command == 8:
+        while not self.winner or self.command == 8:
             player = self.__players[player_number]
             opponent = self.__players[opponent_number]
             print(f"CURRENT PLAYER: {player.name}")
 
-            display_options(MENU)
-            command = choose_value(MENU, "COMMAND: ")
+            display_options(MENU, "What command do you wish to choose?")
+            command = choose_value(MENU)
             if command == 1:
                 player.board.display_matrix()
             elif command == 2:
-                print(f"HEALTH: {player.board.health}")
+                print(f"HEALTH: {player.notebook.health}")
             elif command == 3:
-                player.board.display_area()
+                print(player.board.length * player.board.width)
             elif command == 4:
-                print(f"NUMBER OF ATTEMPTS: {player.board.attempts}")
+                print(f"NUMBER OF ATTEMPTS: {player.notebook.attempts}")
             elif command == 5:
-                print(f"NUMBER OF HITS: {player.board.hits}")
+                print(f"NUMBER OF HITS: {player.notebook.hits}")
             elif command == 6:
-                print(f"NUMBER OF MISSES: {player.board.misses}")
+                print(f"NUMBER OF MISSES: {player.notebook.misses}")
             elif command == 7:
                 opponent.shoot()
-                if opponent.board.health == 0:
-                    print(f"PLAYER {player.name} WON THE GAME")
+                if opponent.notebook.health == 0:
+                    print(f"Player {player.name} won the game")
                     quit()
                 if player_number == 0 and opponent_number == 1:
                     player_number = 1
@@ -88,10 +86,5 @@ class Game:
                     player_number = 0
                     opponent_number = 1
             elif command == 8:
-                print(f"PLAYER {player.name} LOST THE GAME")
+                print(f"Player {player.name} lost the game")
                 quit()
-
-
-
-
-

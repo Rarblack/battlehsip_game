@@ -1,27 +1,34 @@
-BATTLESHIP_DIRECTIONS = {
-    1: "Horizontal",
-    2: "Vertical"
+ALLOWED_DIRECTIONS = {
+    0: "horizontal",
+    1: "vertical"
 }
 
-BATTLESHIP_TYPES = {
-    1: "Carrier",
-    2: "Battleship",
-    3: "Cruiser",
-    4: "Submarine",
-    5: "Destroyer",
-}
-
-BATTLESHIP_LENGTHS = {
-    1: 5,
-    2: 4,
-    3: 3,
-    4: 3,
-    5: 2,
+BATTLESHIPS_INFORMATION_DICTIONARY = {
+    5: {
+        "type": "carrier",
+        "length": 5
+    },
+    4: {
+        "type": "battleship",
+        "length": 4,
+    },
+    3: {
+        "type": "cruiser",
+        "length": 3
+    },
+    2: {
+        "type": "submarine",
+        "length": 3
+    },
+    1: {
+        "type": "destroyer",
+        "length": 2
+    },
 }
 
 CONFIGURATION_OPTIONS = {
-    1: "LOCATE BATTLESHIPS AUTOMATICALLY",
-    2: "LOCATE BATTLESHIPS MANUALLY",
+    0: "manual",
+    1: "automatic",
 }
 
 MENU = {

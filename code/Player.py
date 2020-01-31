@@ -1,6 +1,7 @@
 from Board import Board
+from Notebook import Notebook
 
-from shortcuts import select_point, display_options, choose_value
+from shortcuts import input_number, display_options, choose_value
 from dictionaries import CONFIGURATION_OPTIONS
 
 
@@ -9,9 +10,8 @@ class Player:
     def __init__(self):
         self.__id = None
         self.__name = None
-        self.__board = None
-
-        print("PLAYER SETUP INITIALIZED.\n")
+        self.__board = Board()
+        self.__notebook = Notebook()
 
     @property
     def id(self):
@@ -20,7 +20,6 @@ class Player:
     @id.setter
     def id(self, value):
         self.__id = value
-        print(f"SETTING PLAYER {value} UP\n")
 
     @property
     def name(self):
@@ -29,50 +28,51 @@ class Player:
     @name.setter
     def name(self, value):
         self.__name = value
-        print(f"NAME IS SET TO {value}\n")
 
     @property
     def board(self):
         return self.__board
 
-    @board.setter
-    def board(self, board):
-        self.__board = board
+    @property
+    def notebook(self):
+        return self.__notebook
 
     def create_board(self, length, width):
-        board = Board()
-        board.length = length
-        board.width = width
-        board.create_matrix()
-        board.create_battleships()
+        self.board.id = self.id
+        self.board.length = length
+        self.board.width = width
+        print("Created a board")
+        self.board.create_matrix()
+        print("Created a matrix for the board")
+        self.board.create_battleships()
+        print("Created battleships for the board")
+        display_options(CONFIGURATION_OPTIONS, "How should locating be?")
+        option = choose_value(CONFIGURATION_OPTIONS)
+        self.board.locate_battleships(False if option == 0 else True)
+        print("Located battleships on the board")
 
-        display_options(CONFIGURATION_OPTIONS)
-        command = choose_value(CONFIGURATION_OPTIONS, "COMMAND: ")
-        if command == 1:
-            board.locate_battleships_automatically()
-        else:
-            board.locate_battleships_manually()
-        board.display_matrix()
-
-        self.board = board
+    def create_notebook(self):
+        self.notebook.id = self.id
 
     def shoot(self):
-        target = select_point(self.board)
-        valid = False
-        while not valid:
-            if target.is_unique_attempt():
-                self.board.increase_attempt()
-                if target.is_hit():
-                    target.mark_hit()
-                    self.board.increase_hit()
-                    self.board.decrease_health()
-                else:
-                    target.mark_miss()
-                    self.board.increase_miss()
-                valid = True
+        self.notebook.attempts += 1
+        row = input_number("Row -> ")
+        column = input_number("Column-> ")
+        target = self.board.matrix[row][column]
+        if target.sign != "+" or target.sign != "-":
+            if target.status:
+                target.sign = "+"
+                self.notebook.hits += 1
+                self.notebook.health -= 1
             else:
-                print("YOU HAVE ALREADY ATTEMPTED TO SHOOT AT THIS POINT\n")
-                break
+                target.sign = "-"
+                self.notebook.misses += 1
+        else:
+            print("ATTEMPTED BEFORE!!!")
 
     def __str__(self):
-        return f"I AM {self.name} AND MY PLAYER ID IS {self.id}"
+        return \
+            f"    ID:{self.id}\n" \
+            f"    NAME:{self.name}\n" \
+            f"    BOARD ID:{self.board.id}\n" \
+            f"    NOTEBOOK ID:{self.notebook.id}\n"

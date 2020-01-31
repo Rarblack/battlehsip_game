@@ -4,7 +4,8 @@ class Point:
         self.__id = None
         self.__row = None
         self.__column = None
-        self.__sign = 0
+        self.__status = False
+        self.__sign = "o"
 
     @property
     def id(self):
@@ -31,6 +32,14 @@ class Point:
         self.__column = value
 
     @property
+    def status(self):
+        return self.__status
+
+    @status.setter
+    def status(self, value):
+        self.__status = value
+
+    @property
     def sign(self):
         return self.__sign
 
@@ -38,29 +47,11 @@ class Point:
     def sign(self, value):
         self.__sign = value
 
-    def mark_hit(self):
-        self.sign = "+"
-        print("YOU HIT")
-
-    def mark_miss(self):
-        self.sign = "-"
-        print("YOU MISSED")
-
-    def is_hit(self):
-        if self.sign != 1:
-            return False
-        return True
-
-    def is_unique(self):
-        if self.sign != 0:
-            return False
-        return True
-
-    def is_unique_attempt(self):
-        if self.sign == "+" or self.sign == "-":
-            return False
-        return True
-
     def __str__(self):
-        return f"{[self.__row, self.__column]}"
+        return \
+            f"    ID:{self.id}\n" \
+            f"    ROW:{self.row}\n" \
+            f"    COLUMN: {self.column}\n" \
+            f"    STATUS: {self.status}\n" \
+            f"    SIGN:{self.sign}\n"
 

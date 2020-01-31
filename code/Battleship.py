@@ -1,16 +1,14 @@
-from dictionaries import BATTLESHIP_TYPES, BATTLESHIP_DIRECTIONS
+from dictionaries import BATTLESHIPS_INFORMATION_DICTIONARY
 
 
 class Battleship:
 
     def __init__(self):
         self.__id = None
-        self.__direction = None
         self.__type = None
         self.__length = None
+        self.__direction = None
         self.__points = None
-
-        print("BATTLESHIP SETUP INITIALIZED")
 
     @property
     def id(self):
@@ -27,7 +25,6 @@ class Battleship:
     @type.setter
     def type(self, value):
         self.__type = value
-        print(f"BATTLESHIP TYPE IS {BATTLESHIP_TYPES[value]}\n")
 
     @property
     def length(self):
@@ -44,7 +41,6 @@ class Battleship:
     @direction.setter
     def direction(self, value):
         self.__direction = value
-        print(f"BATTLESHIP DIRECTION IS {BATTLESHIP_DIRECTIONS[value]}\n")
 
     @property
     def points(self):
@@ -56,20 +52,20 @@ class Battleship:
         for value in values:
             value.id = self.id
             points.append(value)
-            print(f"BATTLESHIP IS LOCATED AT {value} POINTS.")
-        print("\n")
+            print(f"BATTLESHIP IS LOCATED AT [{value.row}, {value.column}] POINTS.\n")
         self.__points = points
 
-    def display_health(self):
+    def get_health(self):
         health = []
         for point in self.points:
-            if point.sign == 1:
+            if point.sign == "+":
                 health.append(point)
-        print(f"THE REMAINED HEALTH OF BATTLESHIP {BATTLESHIP_TYPES[self.type]} IS {len(health)}")
+        return len(health)
 
     def __str__(self):
         return \
-            f"BATTLESHIP: \n" \
             f"    ID:{self.id}\n" \
-            f"    TYPE:{BATTLESHIP_TYPES[self.type]}\n"
+            f"    TYPE:{BATTLESHIPS_INFORMATION_DICTIONARY[self.id]['type']}\n" \
+            f"    LENGTH: {BATTLESHIPS_INFORMATION_DICTIONARY[self.id]['length']}" \
+            f"    HEALTH:{self.get_health()}"
 
